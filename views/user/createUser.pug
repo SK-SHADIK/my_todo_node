@@ -1,15 +1,20 @@
-
-block content
-  h1 Create New User
-  form(action="/users/create", method="POST")
-    div
-      label(for="name") Name:
-      input(type="text" name="name" id="name" required)
-    div
-      label(for="email") Email:
-      input(type="email" name="email" id="email" required)
-    div
-      label(for="password") Password:
-      input(type="password" name="password" id="password" required)
-    div
-      button(type="submit") Create User
+doctype html
+html
+  head
+    title User List
+    link(rel="stylesheet", href="/styles/custom.css")
+  body
+    div.form-container
+      h1 Create New User
+      form(action="/users/create", method="POST")
+        div.form-group
+          label(for="name") Name:
+          input(type="text" name="name" id="name" required placeholder="Enter your name")
+        div.form-group
+          label(for="email") Email:
+          input(type="email" name="email" id="email" required placeholder="Enter your email")
+        div.form-group
+          label(for="password") Password:
+          input(type="password" name="password" id="password" required placeholder="Enter your password")
+        div.form-group
+          button(type="submit") Create User

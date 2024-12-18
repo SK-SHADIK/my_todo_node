@@ -1,5 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #fff;
+}
+
 h1 {
-    color: #333;
+    color: #000;
+    background-color: #fff;
     text-align: center;
 }
 
@@ -14,7 +22,7 @@ li {
 }
 
 a {
-    color: #007bff;
+    color: #f087f1;
     text-decoration: none;
 }
 
@@ -29,6 +37,13 @@ a:hover {
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
 table {
     width: 100%;
@@ -37,7 +52,7 @@ table {
 }
 
 thead th {
-    background-color: #007bff;
+    background-color: #e8783c;
     color: #fff;
     text-align: left;
     padding: 10px;
@@ -51,10 +66,12 @@ td,
 th {
     border: 1px solid #ddd;
     padding: 10px;
+    background-color: #fff;
 }
 
 td a {
-    color: #007bff;
+    color: #911412;
+    background-color: #fff;
     text-decoration: none;
     margin-right: 10px;
 }
@@ -63,10 +80,69 @@ td a:hover {
     text-decoration: underline;
 }
 
-.btn{
-    background-color: #007bff;
+.btn {
+    background-color: #911412;
     padding: 8px;
     color: #fff;
     font-size: 14px;
     font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #f087f1;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #e8783c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e8783c;
+}
+
+button:active {
+    background-color: #e8783c;
+}
+
+input::placeholder {
+    color: #aaa;
+    font-style: italic;
 }

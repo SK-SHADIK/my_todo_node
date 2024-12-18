@@ -14,12 +14,12 @@ class UserRepository {
   }
 
   // Create a new user
-  async createUser(name, email, password) {
+  async createUser(user_id, name, email, password) {
     try {
       const userRepository = AppDataSource.getRepository(User);
 
       // Create a new user entity
-      const newUser = userRepository.create({ name, email, password });
+      const newUser = userRepository.create({ user_id, name, email, password });
 
       // Save the user to the database
       await userRepository.save(newUser);
