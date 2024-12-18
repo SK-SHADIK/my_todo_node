@@ -1,15 +1,23 @@
 const express = require('express');
 const { AppDataSource, initializeDatabase } = require('./utils/db-connection');
+const userRoutes = require("./routes/userRoutes");
+const path = require("path");
 
 const app = express();
 
+// Set view engine and views directory
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
+
+// Middleware to serve static files
+app.use(express.static(path.join(__dirname, "public")));
+
+// Middleware for JSON and URL encoding
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-
-// Handle other routes (optional)
-app.use((req, res) => {
-    sendResponse(res, 404, false, 'Route not found.');
-});
+// Routes
+app.use("/users", userRoutes);
 
 initializeDatabase().then(() => {
     const port = process.env.PORT || 3000;

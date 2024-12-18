@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title User List
+    link(rel="stylesheet", href="/styles/custom.css") 
+  body
+    div.container
+      h1 User List
+      a(href="/users/create", class="btn btn-primary") Create User
+      table
+        thead
+          tr
+            th ID
+            th User Id
+            th Name
+            th Email
+            th Actions
+        tbody
+          each user in users
+            tr
+              td #{user.id}
+              td #{user.user_id}
+              td #{user.name}
+              td #{user.email}
+              td
+                a(href=`/users/${user.user_id}`) View
+                | 
+                a(href=`/users/edit/${user.user_id}`) Edit
+                | 
+                a(href=`/users/delete/${user.user_id}`) Delete
