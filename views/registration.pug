@@ -1,0 +1,32 @@
+doctype html
+html
+    head
+        title User Registration
+        link(rel="stylesheet" href="/styles/custom.css") 
+    body
+        .form-container
+            h1 Register
+
+                if errors && errors.length
+                    .error-messages
+                        ul
+                            each error in errors
+                                li= error
+
+                form(action="/store/registration" method="POST")
+                    .form-group
+                        label(for="name") Full Name:
+                        input(type="text" name="name" id="name" placeholder="Enter your full name")
+                    .form-group
+                        label(for="email") Email Address:
+                        input(type="text" name="email" id="email" placeholder="Enter your email")
+                    .form-group
+                        label(for="password") Password:
+                        input(type="password" name="password" id="password" placeholder="Enter a password")
+                    .form-group
+                        label(for="confirm_password") Confirm Password:
+                        input(type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your password")
+                    button(type="submit") Register
+                .form-footer
+                    p Already have an account? 
+                    a(href="/login") Login here

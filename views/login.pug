@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        title User Login
+        link(rel="stylesheet" href="/styles/custom.css") 
+    body
+        .form-container
+            h1 Login
+
+                if errors && errors.length
+                    .error-messages
+                        ul
+                            each error in errors
+                                li= error
+
+                form(action="" method="POST")
+                    .form-group
+                        label(for="email") Email Address:
+                        input(type="text" name="email" id="email" placeholder="Enter your email")
+                    .form-group
+                        label(for="password") Password:
+                        input(type="password" name="password" id="password" placeholder="Enter a password")
+                    button(type="submit") Register
+                .form-footer
+                    p I don't have an account? 
+                    a(href="/registration") Register here

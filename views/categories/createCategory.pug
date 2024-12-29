@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title Category
+    link(rel="stylesheet" href="/styles/custom.css")
+  body
+    div.form-container
+      h1 Create New Category
+      form(action="" method="POST")
+        div.form-group
+          label(for="category-name") Category Name:
+          input(type="text" name="category-name" id="category-name" required placeholder="Enter category name")
+
+        div.form-group
+          button(type="submit") Create Category

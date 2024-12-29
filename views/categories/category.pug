@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title Category List
+    link(rel="stylesheet", href="/styles/custom.css") 
+  body
+    div.container
+      h1 Category List
+      a(href="/categories/create", class="btn btn-primary") Create Category
+      table
+        thead
+          tr
+            th ID
+            th Category Id
+            th User
+            th Category Name
+            th Actions
+        tbody
+          each category in categories
+            tr
+              td #{category.id}
+              td #{category.category_id}
+              td #{category.user_id}
+              td #{category.name}
+              td #{category.email}
+              td
+                a(href=`/categories/${category.category_id}`) View
+                | 
+                a(href=`/categories/edit/${category.category_id}`) Edit
+                | 
+                a(href=`/categories/delete/${category.category_id}`) Delete
