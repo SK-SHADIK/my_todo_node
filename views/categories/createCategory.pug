@@ -6,10 +6,10 @@ html
   body
     div.form-container
       h1 Create New Category
-      form(action="" method="POST")
+      form(action="/categories/create" method="POST")
         div.form-group
           label(for="category-name") Category Name:
-          input(type="text" name="category-name" id="category-name" required placeholder="Enter category name")
+          input(type="text" name="category_name" id="category_name" placeholder="Enter category name")
 
         div.form-group
           button(type="submit") Create Category

@@ -1,32 +1,34 @@
 const categoryRepository = require("../repositories/categoryRepositories");
+const { v4: uuidv4 } = require("uuid"); // To generate UUID
 
 class CategoryService {
-  // Get all users
+  // Get all categories
   async getAllCategory() {
     try {
       return await categoryRepository.getAllCategory();
     } catch (error) {
-      console.error("Error fetching category:", error);
+      console.error("Error fetching categories:", error);
       throw error;
     }
   }
 
-  // Create a new user
-  // async createUser(name, email, password) {
-  //   try {
-  //     // Hash the password before saving it
-  //     const hashedPassword = await bcrypt.hash(password, 10);
-  //     const user_id = crypto.randomUUID();  // Generate UUID for the user
+  // Create a new category
+  async createCategory(userId, categoryName) {
+    try {
+      const categoryId = uuidv4(); // Generate a UUID for the category
 
-  //     // Use the repository to create and save the new user
-  //     const user = await userRepository.createUser(user_id, name, email, hashedPassword);
+      const category = {
+        category_id: categoryId,
+        user_id: userId, // Associate category with the user
+        category_name: categoryName,
+      };
 
-  //     return user; // Return the newly created user
-  //   } catch (error) {
-  //     console.error("Error creating user:", error);
-  //     throw error;
-  //   }
-  // }
+      return await categoryRepository.createCategory(category); // Save the category to the DB
+    } catch (error) {
+      console.error("Error creating category:", error);
+      throw error;
+    }
+  }
 }
 
 module.exports = new CategoryService();

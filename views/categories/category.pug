@@ -12,7 +12,6 @@ html
           tr
             th ID
             th Category Id
-            th User
             th Category Name
             th Actions
         tbody
@@ -20,9 +19,7 @@ html
             tr
               td #{category.id}
               td #{category.category_id}
-              td #{category.user_id}
-              td #{category.name}
-              td #{category.email}
+              td #{category.category_name}
               td
                 a(href=`/categories/${category.category_id}`) View
                 | 

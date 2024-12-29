@@ -2,34 +2,34 @@ const { AppDataSource } = require('../utils/db-connection');
 const Category = require('../models/categoryModel');
 
 class CategoryRepository {
-  // Get all category
+  // Get all categories
   async getAllCategory() {
     try {
       const categoryRepository = AppDataSource.getRepository(Category);
       return await categoryRepository.find();
     } catch (error) {
-      console.error("Error fetching category:", error);
-      throw new Error("Error fetching category");
+      console.error("Error fetching categories:", error);
+      throw new Error("Error fetching categories");
     }
   }
 
-  // Create a new user
-  // async createUser(user_id, name, email, password) {
-  //   try {
-  //     const userRepository = AppDataSource.getRepository(User);
+  // Create a new category
+  async createCategory(categoryData) {
+    try {
+      const categoryRepository = AppDataSource.getRepository(Category);
 
-  //     // Create a new user entity
-  //     const newUser = userRepository.create({ user_id, name, email, password });
+      // Create a new category entity
+      const newCategory = categoryRepository.create(categoryData);
 
-  //     // Save the user to the database
-  //     await userRepository.save(newUser);
+      // Save the category to the database
+      await categoryRepository.save(newCategory);
 
-  //     return newUser; // Return the newly created user
-  //   } catch (error) {
-  //     console.error("Error creating user:", error);
-  //     throw new Error("Error creating user");
-  //   }
-  // }
+      return newCategory; // Return the newly created category
+    } catch (error) {
+      console.error("Error creating category:", error);
+      throw new Error("Error creating category");
+    }
+  }
 }
 
 module.exports = new CategoryRepository();

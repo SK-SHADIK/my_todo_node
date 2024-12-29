@@ -57,7 +57,7 @@ class AuthController {
 
             // Generate a JWT token
             const token = jwt.sign(
-                { id: user.id, email: user.email },  // Payload
+                { id: user.id, email: user.email, user_id: user.user_id },  // Payload
                 config.JWT_SECRET_KEY,               // Secret key from config
                 { expiresIn: '15m' }                  // Expiry time
             );
