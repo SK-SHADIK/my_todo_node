@@ -70,7 +70,7 @@ th {
     background-color: #fff;
 }
 
-td a {
+td a, .delete-btn {
     color: #911412;
     background-color: #fff;
     text-decoration: none;
@@ -166,4 +166,9 @@ input::placeholder {
 
 .error-messages li {
     line-height: 1.5;
+}
+
+.form-footer {
+    margin-top: 20px;
+    font-size: 14px;
 }

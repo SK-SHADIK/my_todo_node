@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet" href="/styles/custom.css")
+  body
+    div.container
+      a(href="/categories") Back to Categories
+      h1 Category Details
+      form
+        div
+          label(for="id") ID:
+          input#id(type="text", value=category.id, readonly)
+        div
+          label(for="category_id") Category ID:
+          input#category_id(type="text", value=category.category_id, readonly)
+        div
+          label(for="category_name") Category Name:
+          input#category_name(type="text", value=category.category_name, readonly)

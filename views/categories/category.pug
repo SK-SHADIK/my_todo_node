@@ -21,8 +21,10 @@ html
               td #{category.category_id}
               td #{category.category_name}
               td
-                a(href=`/categories/${category.category_id}`) View
+                a(href=`/categories/${category.category_id}/view`) View
                 | 
-                a(href=`/categories/edit/${category.category_id}`) Edit
+                a(href=`/categories/${category.category_id}/edit`) Edit
                 | 
-                a(href=`/categories/delete/${category.category_id}`) Delete
+                form(action=`/categories/${category.category_id}/delete`, method="POST")
+                  input(type="hidden", name="_method", value="DELETE")
+                  button.delete-btn(type="submit") Delete
