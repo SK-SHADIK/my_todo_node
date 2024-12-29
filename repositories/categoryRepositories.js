@@ -9,6 +9,9 @@ class CategoryRepository {
       // Fetch categories where user_id is equal to the logged-in user's user_id
       return await categoryRepository.find({
         where: { user_id: userId }, // Query where user_id matches
+        order: {
+          id: 'DESC'
+        },
       });
     } catch (error) {
       console.error("Error fetching categories by user_id:", error);
