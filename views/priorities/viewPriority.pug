@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet" href="/styles/custom.css")
+  body
+    div.container
+      a(href="/priorities") Back to priorities
+      h1 Priority Details
+      form
+        div
+          label(for="id") ID:
+          input#id(type="text", value=priority.id, readonly)
+        div
+          label(for="priority_id") Priority ID:
+          input#priority_id(type="text", value=priority.priority_id, readonly)
+        div
+          label(for="priority_name") Priority Name:
+          input#priority_name(type="text", value=priority.priority_name, readonly)

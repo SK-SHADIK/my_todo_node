@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title Status List
+    link(rel="stylesheet", href="/styles/custom.css") 
+  body
+    div.container
+      h1 Status List
+      a(href="/statuses/create", class="btn btn-primary") Create Status
+      table
+        thead
+          tr
+            th ID
+            th Status Id
+            th Status Name
+            th Actions
+        tbody
+          each status in statuses
+            tr
+              td #{status.id}
+              td #{status.status_id}
+              td #{status.status_name}
+              td
+                a(href=`/statuses/${status.status_id}/view`) View
+                | 
+                a(href=`/statuses/${status.status_id}/edit`) Edit
+                | 
+                form(action=`/statuses/${status.status_id}/delete`, method="POST")
+                  input(type="hidden", name="_method", value="DELETE")
+                  button.delete-btn(type="submit") Delete

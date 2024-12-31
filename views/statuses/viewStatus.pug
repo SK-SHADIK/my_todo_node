@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet" href="/styles/custom.css")
+  body
+    div.container
+      a(href="/statuses") Back to statuses
+      h1 Status Details
+      form
+        div
+          label(for="id") ID:
+          input#id(type="text", value=status.id, readonly)
+        div
+          label(for="status_id") Status ID:
+          input#status_id(type="text", value=status.status_id, readonly)
+        div
+          label(for="status_name") Status Name:
+          input#status_name(type="text", value=status.status_name, readonly)

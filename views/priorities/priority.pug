@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title Priority List
+    link(rel="stylesheet", href="/styles/custom.css") 
+  body
+    div.container
+      h1 Priority List
+      a(href="/priorities/create", class="btn btn-primary") Create Priority
+      table
+        thead
+          tr
+            th ID
+            th Priority Id
+            th Priority Name
+            th Actions
+        tbody
+          each priority in priorities
+            tr
+              td #{priority.id}
+              td #{priority.priority_id}
+              td #{priority.priority_name}
+              td
+                a(href=`/priorities/${priority.priority_id}/view`) View
+                | 
+                a(href=`/priorities/${priority.priority_id}/edit`) Edit
+                | 
+                form(action=`/priorities/${priority.priority_id}/delete`, method="POST")
+                  input(type="hidden", name="_method", value="DELETE")
+                  button.delete-btn(type="submit") Delete

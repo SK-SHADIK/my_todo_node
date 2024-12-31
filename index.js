@@ -4,6 +4,8 @@ const { AppDataSource, initializeDatabase } = require('./utils/db-connection');
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const categoryRoutes = require("./routes/categoryRoutes");
+const priorityRoutes = require("./routes/priorityRoutes");
+const statusRoutes = require("./routes/statusRoutes");
 const path = require("path");
 const authenticateJWT = require('./middleware/authMiddleware'); // Import the JWT authentication middleware
 const authController = require('./controllers/authController'); // Import authController for logout functionality
@@ -29,6 +31,8 @@ app.use("/", authRoutes); // Public routes (e.g., login, registration)
 
 // Apply authentication middleware to protected routes
 app.use("/categories", authenticateJWT, categoryRoutes);
+app.use("/priorities", authenticateJWT, priorityRoutes);
+app.use("/statuses", authenticateJWT, statusRoutes);
 
 // app.use("/user", authenticateJWT, userRoutes);
 
