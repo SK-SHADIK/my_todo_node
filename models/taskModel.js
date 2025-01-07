@@ -20,27 +20,32 @@ const Task = new EntitySchema({
         },
         category_id: {
             type: "uuid",
+            nullable: true,
             comment: "the category table category_id column value",
         },
         priority_id: {
             type: "uuid",
+            nullable: true,
             comment: "the priority table priority_id column value",
         },
         status_id: {
             type: "uuid",
+            nullable: true,
             comment: "the status table status_id column value",
         },
-        title: {
+        task_name: {
             type: "varchar",
             length: 255,
-            comment: "the title of the task",
+            comment: "the name of the task",
         },
         description: {
             type: "text",
+            nullable: true,
             comment: "the description of the task",
         },
         due_date: {
             type: "timestamp",
+            nullable: true,
             comment: "the due date of the task",
         },
         is_active: {

@@ -69,7 +69,7 @@ class AuthController {
                 maxAge: 15 * 60 * 1000 // 15 min
             });
 
-            return res.redirect('/categories'); // Redirect to home/dashboard page after login
+            return res.redirect('/tasks'); // Redirect to home/dashboard page after login
         } catch (error) {
             console.error('Login error:', error.message);
 

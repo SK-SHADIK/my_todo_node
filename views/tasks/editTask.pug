@@ -1,0 +1,55 @@
+doctype html
+html
+    head
+        title Edit Task
+        link(rel="stylesheet" href="/styles/custom.css")
+    body
+        div.container
+            a(href="/tasks") Back to Tasks
+
+            h1 Edit Task
+            form(action="/tasks/edit" method="POST")
+                div.form-group
+                input(type="hidden" name="task_id" value=task.task_id)
+
+                div.form-group
+                    label(for="category_id") Task Category:
+                    select(name="category_id" id="category_id")
+                        option(value="" disabled selected) Select a category
+                        each category in categories
+                            option(value=category.category_id, selected=category.category_id == task.category_id)= category.category_name
+
+                div.form-group
+                    label(for="task_name") Task Name:
+                    input(type="text" name="task_name" id="task_name" placeholder="Enter task name" value=task.task_name)
+
+                div.form-group
+                   label(for="due_date") Task Due Date:
+                   input(type="datetime-local", name="due_date", id="due_date", value=`${new Date(task.due_date).toISOString().slice(0, 16)}`)
+
+
+                div.form-group
+                    label(for="task-description") Task Description:
+                    textarea#description(name="description")= task.description
+
+                div.form-group
+                    label(for="status_id") Task Status:
+                    select(name="status_id" id="status_id")
+                        option(value="" disabled selected) Select a status
+                        each status in statuses
+                            option(value=status.status_id, selected=status.status_id == task.status_id)= status.status_name
+
+                div.form-group
+                    label(for="priority_id") Task Priority:
+                    select(name="priority_id" id="priority_id")
+                        option(value="" disabled selected) Select a priority
+                        each priority in priorities
+                            option(value=priority.priority_id, selected=priority.priority_id == task.priority_id)= priority.priority_name
+
+                div.form-group
+                    label Task Active:
+                    div.toggle-switch
+                        input#is_active(type="checkbox" name="is_active" checked=task.is_active ? true : false)
+                        label(for="is_active") 
+                div.form-group
+                    button(type="submit") Update Task

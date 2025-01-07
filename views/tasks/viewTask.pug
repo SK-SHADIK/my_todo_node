@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet" href="/styles/custom.css")
+  body
+    div.container
+      a(href="/tasks") Back to Tasks
+      h1 Task Details
+      form
+        div
+          label(for="id") ID:
+          input#id(type="text", value=task.id, readonly)
+        div
+          label(for="category_name") Task Category:
+          input#task_id(type="text", value=task.category_name, readonly)
+        div
+          label(for="task_id") Task ID:
+          input#task_id(type="text", value=task.task_id, readonly)
+        div
+          label(for="task_name") Task Name:
+          input#title(type="text", value=task.task_name, readonly)
+        div
+          label(for="due_date") Task Due Date:
+          input#title(type="text", value=task.due_date, readonly)
+        div
+          label(for="description") Task Description:
+          input#title(type="text", value=task.description, readonly)
+        div
+          label(for="status") Task Status:
+          input#title(type="text", value=task.status_name, readonly)
+        div
+          label(for="priority") Task Priority:
+          input#title(type="text", value=task.priority_name, readonly)
+        div
+          label(for="active") Task Active Status:
+          input#title(type="text", value=task.is_active ? 'Active' : 'InActive', readonly)
+

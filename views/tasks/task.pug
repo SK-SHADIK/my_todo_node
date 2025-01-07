@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    title Task List
+    link(rel="stylesheet" href="/styles/custom.css")
+  body
+    div.container
+      h1 Task List
+      a(href="/tasks/create" class="btn btn-primary") Create Task
+      table
+        thead
+          tr
+            th ID
+            th Task Id
+            th Task Name
+            th Task Due Date
+            th Task Category
+            th Task Status
+            th Task Priority
+            th Task Active
+            th Task Description
+            th Actions
+        tbody
+          each task in tasks
+            tr
+              td #{task.id}
+              td #{task.task_id}
+              td 
+                input(type="text" name="task_name" id="task_name" placeholder="Enter task name" value=task.task_name)
+              td 
+                input(type="datetime-local" name="due_date" id="due_date", value=`${new Date(task.due_date).toISOString().slice(0, 16)}`)
+              td #{task.category_name}
+              td #{task.status_name}
+              td #{task.priority_name}
+              td
+                .toggle-switch
+                  input(type="checkbox", id=`task-active-${task.id}`, checked=task.is_active ? true : false)
+                  label(for=`task-active-${task.id}`)
+              td #{task.description}
+              td
+                a(href=`/tasks/${task.task_id}/view`) View
+                | 
+                a(href=`/tasks/${task.task_id}/edit`) Edit
+                | 
+                form(action=`/tasks/${task.task_id}/delete`, method="POST")
+                  input(type="hidden" name="_method" value="DELETE")
+                  button.delete-btn(type="submit") Delete
